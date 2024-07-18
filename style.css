@@ -1,13 +1,13 @@
-@font-face {
-    font-family: "Nunito Sans";
-    src: "assets/Nunito-VariableFont_wght.ttf"
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 } 
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url(assets/Nunito-VariableFont_wght.ttf);
+}
 
 ul{
     list-style: none;
@@ -15,17 +15,149 @@ ul{
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --bgColour:linear-gradient(to bottom right, #f8f8f2, #dedfd8);
+    --fontColour: #3f433c;
+    --fontColouralt:  #f8f8f2;
+}
+
+body {
+    background-image: var(--bgColour);
+    color: var(--fontColour);
+    height: 100vh;
+font-family:'Times New Roman', Times, serif;
+}
+
+.topNav {
+    animation: fromUp .5s  1 forwards;
 }
 
 .navlinks {
     display: flex;
     justify-content: center;
-    padding: 30px;
-    gap: 70px;
+    padding: 40px;
+    gap: 10px;
 }
 
-body {
-    background-image: linear-gradient(to bottom right, #f8f8f2, #dedfd8);
-    color: #3f433c;
-    height: 100vh;
+.navlinks li {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    padding: 6px;
+    background-color: transparent;
+    transition: font-size .1s ease;
+    cursor: pointer;
+}
+
+.navlinks li:hover {
+    font-size: 1.5rem;
+}
+
+.homeContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meTitle {
+    position: absolute;
+    bottom: 1rem;
+    padding: 0 0 3rem 5rem;
+    width: 50vw;
+    transform: translateX(-250);
+    animation: animation 1s  1 forwards;
+}
+
+.homeContainer h1 {
+    font-size: 9rem;
+    line-height: 9rem;
+    margin-bottom: 2rem;
+    font-weight: 100;
+}
+
+.meTitle p {
+    font-size: 2.5rem;
+}
+
+.portfolioTitle {
+    margin: .5rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.portfolioTitle img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.portfolioTitle p {
+    font-family: 'Nunito Sans';
+    font-size: 1rem;
+}
+
+.moreLinks {
+    position: absolute;
+    right: 4rem;
+    bottom: .5rem;
+    opacity: 0;
+    animation: fadeIn 1s 3s  1 forwards;
+
+}
+
+.moreLinks h3 {
+    font-size: 2.25rem;
+    font-family: 'Nunito Sans';
+}
+
+.moreLinks ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 1.25rem;
+}
+
+.moreLinks li {
+    font-size: 1.25rem;
+    height: 2rem;
+    transition: font-size .1s ease;
+}
+
+.moreLinks li:hover {
+    font-size: 1.5rem;
+}
+
+@keyframes  animation {
+    from {
+        transform: translateX(-250%);
+    }
+     
+    to {
+       transform: translateX(0); 
+    }
+}
+
+@keyframes  fadeIn {
+    from {
+        opacity: 0;
+    }
+     
+    to {
+        opacity: 1;   
+     }
+}
+
+@keyframes fromUp {
+    from {
+        transform: translateY(-200%);
+    }
+    
+    to {
+        transform: translateY(0);
+    }
 }
